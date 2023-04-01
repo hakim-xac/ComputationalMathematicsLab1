@@ -1,6 +1,11 @@
-#include <iostream>
+#include "LinearInterpolation.h"
+
+
 
 int main() {
-	std::cout << "hello\n";
-	return 0;
+    std::setlocale(LC_ALL, "Russian");
+    KHAS::LinearInterpolation lip{ 63 };
+    lip.run();
+
+    return 0;
 }
