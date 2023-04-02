@@ -8,6 +8,8 @@ namespace KHAS {
     template <typename Str>
     requires std::is_convertible_v<Str, std::string>
     std::string generateString(Str&& str, size_t width_screen) noexcept;
+
+    double precision(double num, size_t degree) noexcept;
 }
 
 #include "Functions.hpp"

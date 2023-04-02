@@ -6,14 +6,12 @@
 
 namespace KHAS {
 
-    Menu::Menu(size_t width_screen)
+    Menu::Menu(size_t width_screen, size_t reserve_buffer)
         : width_screen_{ width_screen }
-        , buffer_{} {
-        buffer_.reserve(3);
-        buffer_.emplace_back(MenuItem{ "Вывод таблицы значений функции с рассчитанным шагом", [] {} });
-        buffer_.emplace_back(MenuItem{ "Вывод таблицы точных и приближенных значений функции", [] {} });
-        buffer_.emplace_back(MenuItem{ "Выход", [] {} });
-    };
+        , buffer_{} 
+    {
+        buffer_.reserve(reserve_buffer);
+    }
 
     void Menu::show(std::ostream& out) const noexcept
     {
@@ -24,9 +22,17 @@ namespace KHAS {
         for (auto&& elem : buffer_) {
             auto name{ elem.getName() };
             assert(name.size()+10 <= width_screen_);
-            out << std::setw(5) << std::left << elem.getId() << " | " << std::setw(width_screen_-10) << std::right << name << " |\n";
+            out << std::setw(5) << std::right << elem.getId() << " | " << std::setw(width_screen_-10) << std::right << name << " |\n";
         }
         out << delim << "\n";
+    }
+
+    bool Menu::runCommand(size_t cmd) const noexcept
+    {
+        if (cmd < 0 || cmd > buffer_.size()) return false;
+        if (cmd == 0) return true;
+        buffer_[cmd-1].call();
+        return true;
     }
 
 }
