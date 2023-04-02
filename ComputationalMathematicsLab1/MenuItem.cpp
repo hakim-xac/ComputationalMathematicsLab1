@@ -12,6 +12,11 @@ namespace KHAS {
         return name_;
     }
 
+    void MenuItem::call() const noexcept
+    {
+        func_();
+    }
+
     const size_t MenuItem::createId() const noexcept
     {
         static size_t base_index{};

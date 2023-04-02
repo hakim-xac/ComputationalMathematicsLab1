@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.hpp" />
+    <ClInclude Include="InputData.h" />
     <ClInclude Include="LinearInterpolation.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Menu.hpp" />

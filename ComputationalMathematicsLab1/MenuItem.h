@@ -15,12 +15,13 @@ namespace KHAS {
 
         size_t getId() const noexcept;
         const std::string& getName() const& noexcept;
+        void call()const noexcept;
 
     private:
         const size_t createId() const noexcept;
     private:
         std::string name_{ "-" };
-        std::function<void()> func_{};
+        std::function<void ()> func_;
         size_t id_{};
     };
 

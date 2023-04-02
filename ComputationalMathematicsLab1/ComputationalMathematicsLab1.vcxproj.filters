@@ -53,5 +53,8 @@
     <ClInclude Include="Functions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InputData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
